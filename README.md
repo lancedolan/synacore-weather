@@ -1,6 +1,6 @@
 # synacore-weather
 
-**Finish Solution Available At:** http://www.freelance-webs.com/weather
+**Finished Solution Available At:** http://www.freelance-webs.com/weather
 
 **Selenium Script Available At:** https://github.com/lancedolan/synacore-weather/blob/master/example.selenium
 
