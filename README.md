@@ -2,6 +2,8 @@
 
 **Finish Solution Available At:** http://www.freelance-webs.com/weather
 
+**Selenium Script Available At:** https://github.com/lancedolan/synacore-weather/blob/master/example.selenium
+
 **Notes to code judge**
 
 - I'm Using CSS 3.0 flexbox in single line - would not use if IE10 or lower support required
