@@ -1,5 +1,7 @@
 # synacore-weather
 
+(http://www.freelance-webs.com/weather)
+
 **Notes to code judge**
 
 - Using CSS 3.0 flexbox in single line - would not use if IE10 or lower support required
