@@ -1,6 +1,6 @@
 # synacore-weather
 
-http://www.freelance-webs.com/weather
+**Finish Solution Available At:** http://www.freelance-webs.com/weather
 
 **Notes to code judge**
 
