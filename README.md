@@ -6,6 +6,7 @@
 
 **Notes to code judge**
 
+- I've tested the solution on several devises in several states / countries. The solution is confirmed working on PC/mobile in California and PC/mobile in MN. I have one test user, however, who is experiencing failure on a Samsung S5 in Texas as well as Mexico. I haven't gotten diagnostic information in order to debug. If you experience issues, please contact me at 651.387.1059 or lance.dolan@gmail.com
 - I'm Using CSS 3.0 flexbox in single line - would not use if IE10 or lower support required
 - Would normally consult client browser support requirements before using let JS keyword
 - Only testing on Chrome/Firefox, given acceptance criteria.
