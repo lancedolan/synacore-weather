@@ -12,6 +12,7 @@
 
 
 **Requirements Clarifications**
+
 I would normally approach product owners with some requirements clarifications. For some brief examples:
 
 - How should the widget behave during network failure?
