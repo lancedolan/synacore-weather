@@ -17,8 +17,6 @@
 
 I would normally approach product owners with some requirements clarifications. For some brief examples:
 
-- How should the widget behave during network failure?
-    - Should it Retry ?
-    - Suggest use to refresh page after a while?
+- How should the widget behave visually during network failure?
 - If only some data is retrieved, such as location but not weather, should the widget show what is known? What is the UX upon failure?
  
