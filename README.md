@@ -2,8 +2,10 @@
 
 **Notes to code judge**
 
--Using CSS 3.0 flexbox in single line - would not use if IE10 or lower support required
--Would normally consult client browser support requirements before using let JS keyword
+- Using CSS 3.0 flexbox in single line - would not use if IE10 or lower support required
+- Would normally consult client browser support requirements before using let JS keyword
+
+
 -Only testing on Chrome/Firefox, given acceptance criteria.
 -In fullfilling the "fill the window" criteria, I'm attempting to show some different strategies for responsive content, using various CSS units (em/vw) and @media width selectors. One could also use calc() functionality. In any case, a production solution would likely settle a more consistent solution. I'm also assuming responsive support for a max aspect ratio of 1:1. If content is required to also fill stretched landscape aspect ratios, I would do this with some calc() function of both vh and vw, but I think this requirement is rare enough in the industry to go without unless explicitly requested.
 -I've used gslint for styling. I broke gjslint styling rules only to omit documentation for old-school namespace declaration pattern, and for a couple lines that I think are more readable when left too long. I'm open to whatever styling rules a dev environment adopts.
