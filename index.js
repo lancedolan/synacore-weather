@@ -1,8 +1,8 @@
 //namespaces
-
 var com = com || {};
 com.synacore = com.synacore || {};
 com.synacore.weather = com.synacore.weather || {};
+
 /**
  * @author Lance Dolan
  * 7/21/2016
@@ -18,20 +18,32 @@ com.synacore.weather = com.synacore.weather || {};
  */
 com.synacore.weather.driver = function() {
 
-    let weatherVm = com.synacore.weather.vm;
+    /* Begin Private Methods */
 
-    let titleVm = new weatherVm('title');
-    let cityVm = new weatherVm('city');
-    let tempVm = new weatherVm('temp');
-    let iconVm = new weatherVm('icon');
-    let descVm = new weatherVm('desc');
-
-
-    let toFahrenheit = function(kelvins) {
-        return Math.round(kelvins * 9 / 5 - 459.67);
+    /* process successful HTTP request to /ip endpoint.
+     * will extract location information and send
+     * additional request for weather information.
+     */
+    let processIpSuccess = function(jsonData , rawData) {
+        if (jsonData.city && jsonData.location) {
+            titleVm.updateInner('Current Conditions For:');
+            cityVm.updateInner(jsonData.city);
+            get('https://weathersync.herokuapp.com/weather/' +
+                jsonData.location.latitude +
+                ',' + jsonData.location.longitude,
+               processWeatherSuccess,
+               handleHttpError);
+        } else {
+            console.error('malformed response JSON structure. city or location not present.');
+            alert('Oops! It looks like we\'re having a technical problem. ' +
+              'Try again later?');
+        }
     };
 
-    let handleWeatherSuccess = function(json) {
+    /* process successfull HTTP request to /weather.
+     * update the view with this new information.
+     */
+    let processWeatherSuccess = function(json) {
         //update the temp view with new data
         if (json && json.main && json.main.temp) {
             tempVm.updateInner(toFahrenheit(json.main.temp) + ' &deg;F');
@@ -51,38 +63,33 @@ com.synacore.weather.driver = function() {
             console.error('malformed response JSON structure.' +
                           'weather.main or weather.icon not present.');
         }
-
     };
 
-    let handleGeneralError = function() {
-        //NOTE: Production quality code would do much
-        //more logging and informing than this.
-        //I presume this to be reasonable placeholder
-        //handling for the purposes of this take home challenge.
-        //If error checking was a metric of examination for
-        //this test, please let me know so that I can impress
-        //with proper error handling and informing.
-        alert('Oops! It looks like we\'re having a technical problem. ' +
-              'Try again later?');
+    let toFahrenheit = function(kelvins) {
+        return Math.round(kelvins * 9 / 5 - 459.67);
     };
 
+    let handleHttpError = function() {
+        //my get.js library I wrote for this exercise
+        //already promises to do logging.
+        //Only responsibility is to inform the user.
+        alert('We\'re unable to reach the weather server at this time.');
+    };
+
+    /* End Private Methods */
+
+    //Driver Logic
+
+    let weatherVm = com.synacore.weather.vm;
     let get = com.synacore.weather.get;
 
-    get('https://weathersync.herokuapp.com/ip' ,
-        function(jsonData , rawData) {
-            if (jsonData.city && jsonData.location) {
-                titleVm.updateInner('Current Conditions For:');
-                cityVm.updateInner(jsonData.city);
-                get('https://weathersync.herokuapp.com/weather/' + jsonData.location.latitude + ',' + jsonData.location.longitude,
-                   handleWeatherSuccess,
-                   handleGeneralError);
-            } else {
-                console.error('malformed response JSON structure. city or location not present.');
-                handleGeneralError();
-            }
-        },
-        handleGeneralError
-    );
+    let titleVm = new weatherVm('title');
+    let cityVm = new weatherVm('city');
+    let tempVm = new weatherVm('temp');
+    let iconVm = new weatherVm('icon');
+    let descVm = new weatherVm('desc');
+
+    get('https://weathersync.herokuapp.com/ip', processIpSuccess, handleHttpError);
 
 };
 

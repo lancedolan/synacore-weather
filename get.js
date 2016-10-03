@@ -49,4 +49,4 @@ com.synacore.weather.get = function(endpoint , success , fail) {
     xhttp.open('GET', endpoint, true);
     xhttp.send();
 
-}
+};

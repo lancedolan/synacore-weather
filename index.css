@@ -4,9 +4,8 @@ html {
     font-size: 1.5em;
 }
 body {
-    /* Use min-height to forward-support background imagine in future or other dynamic height*/
+    /* Use min-height to forward-support background imagine in future or other dynamic height */
     min-height: 100%;   
-    
     display: flex;
     flex-flow: column;
 }
@@ -27,26 +26,31 @@ body {
 
 #box img#icon {
     display: none;
+    height: 2em;
 }
 
 /* Begin Responsive Font rules */
 
 @media (min-width: 600px) and (max-width: 900px) {
-  html {
-    font-size: 4vw;
-  }
+    html {
+        font-size: 4vw;
+    }
 }
 
 @media (min-width: 900px) {
-  html {
-    font-size: 60px;
-  }
+    html {
+        font-size: 4em;
+    }
 }
 
 @media (min-width: 1400px) {
-  html {
-    font-size: 80px;
-  }
+    html {
+        font-size: 5em;
+    }
+      
+    #box {
+        margin:0.5em;
+    }
 }
 
 
