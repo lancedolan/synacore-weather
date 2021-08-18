@@ -1,6 +1,6 @@
 # synacore-weather
 
-This is a single-page demo app written to demonstrate my coding style and engineering proficiency to Synacore in 2016. 
+This is a single-page demo app written to demonstrate my coding style and engineering proficiency to Synacore in 2016. It is no longer representative of my skills or style.
 
 **Notes to code judge**
 
