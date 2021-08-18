@@ -2,8 +2,6 @@
 
 This is a single-page demo app written to demonstrate my coding style and engineering proficiency to Synacore in 2016. 
 
-**Finished Solution Available At:** http://www.freelance-webs.com/weather
-
 **Notes to code judge**
 
 - The very first time you run the page, it will likely say "loading" for a very long time, as the back-end running it is a free heroku dyno that needs to start up from sleep state if the service hasn't been hit in the last 30 mins. The back end was not produced by me.
